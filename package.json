@@ -2,9 +2,11 @@
   "name": "wetube",
   "version": "1.0.0",
   "description": "Cloing Youtube with VanillaJS and NodeJS",
-  "main": "index.js",
   "author": "Suu",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
