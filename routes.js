@@ -13,7 +13,7 @@ const CHANGE_PASSWORD = "/change-password";
 const USER_DETAIL= "/:id";
 
 //Video
-const VIDEOS = "/videos";
+const VIDEOS = "/video";
 const VIDEO_UPLOAD = "/upload";
 const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
@@ -28,7 +28,7 @@ const routes = {
     users:USERS,
     userDetail:USER_DETAIL,
     userProfile:USER_PROFILE,
-    chagePassword:CHANGE_PASSWORD,
+    changePassword:CHANGE_PASSWORD,
     videos:VIDEOS,
     videoUpload:VIDEO_UPLOAD,
     videoDetail:VIDEO_DETAIL,

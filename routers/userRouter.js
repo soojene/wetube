@@ -2,6 +2,7 @@ import express from "express";
 import routes from "../routes";
 import { 
     chagePassword, 
+    changePassword, 
     userDetail, 
     userProfile, 
     users 
@@ -11,7 +12,7 @@ const userRouter = express.Router();
 
 userRouter.get(routes.users, users);
 userRouter.get(routes.userProfile, userProfile);
-userRouter.get(routes.chagePassword, chagePassword);
+userRouter.get(routes.changePassword, changePassword);
 userRouter.get(routes.userDetail, userDetail);
 
 export default userRouter;
