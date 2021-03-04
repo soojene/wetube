@@ -1,5 +1,13 @@
 extends layouts/main
+include mixins/videoBlcok
 
 block content
     .search__header 
         h3 Search for #{searchingBy}
+    .search__videos
+        each video in videos 
+            +videoBlock({
+                videoFile:video.videoFile,
+                title: video.title,
+                views: video.views
+            })
