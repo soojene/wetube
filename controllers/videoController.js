@@ -1,14 +1,20 @@
 //"render()안에 home을 적어줌(불러오고싶은 home.pug의 파일 이름)"
-import {videos} from "../db";
-import routes from '../routes';
+import routes from "../routes";
+import Video from "../models/Video"
 
-export const home = (req, res) => {
+export const home = async(req, res) => {
+    try{
+        const videos = await Video.find({});
     res.render("home", {pageTitle: "Home", videos});
+    } catch(error){
+        console.log(error);
+        res.render("home", {pageTitle: "Home", videos:[]});
+    }
 }; 
 
 export const search = (req, res) => {
     const {query: { term:searchingBy }} = req;
-    res.render("search", {pageTitle: "Search", searchingBy, videos});
+    res.render("search", {pageTitle: "Search", searchingBy, videos:[]});
 }
 
 export const getVideoUpload = (req, res) => res.render("upload", {pageTitle: "Video Upload"});
