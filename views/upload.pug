@@ -2,9 +2,9 @@ extends layouts/main
 
 block content
     p.form-container
-        form(method="post")
+        form(method="post" enctype="multipart/form-data")
             label(for="file") Video File
-            input(type="file", id="file", name="file")
+            input(type="file", id="file", name="videoFile", accept="video/*")
             input(type="text", placeholder="Title", name="title")
             textarea(name="description", placeholder="Description")
             input(type="submit", value="Upload Video")
