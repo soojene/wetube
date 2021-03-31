@@ -1,7 +1,7 @@
 import multer from 'multer';
 import routes from "./routes";
 
-const multerVideo = multer({dest: "videos/"});
+const multerVideo = multer({dest: "uploads/videos/"});
 
 //미들웨어를 이용해서 전역에서 사용가능한 변수를 추가하는 방법. 
 //locals.이름--> 이름으로 다른곳에서 변수처럼 사용가능. 
