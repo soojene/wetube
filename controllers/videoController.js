@@ -21,20 +21,63 @@ export const getVideoUpload = (req, res) => res.render("upload", {pageTitle: "Vi
 
 export const postVideoUpload = async (req, res) => {
     const {
-      body: { title, description },
-      file: { path }
+        body: { title, description },
+        file: { path }
     } = req;
     const newVideo = await Video.create({
         fileUrl: path,
         title,
         description
-      });
+    });
       // console.log(newVideo);
-      res.redirect(routes.videoDetail(newVideo.id));
+    res.redirect(routes.videoDetail(newVideo.id));
     };
 
-export const videoDetail = (req, res) => res.render("videoDetail", {pageTitle: "Video Detail"});
+export const videoDetail = async (req, res) => {
+    const {
+        params: {id}
+    } = req;
+    try {
+        const clickedVideo = await Video.findById(id);
+    // console.log(clickedVideo);
+    res.render("videoDetail", {pageTitle: clickedVideo.title, clickedVideo });
+    } catch (error) {
+        // console.log(error);
+        res.redirect(routes.home);
+    }
+};
 
-export const editVideo = (req, res) => res.render("editVideo", {pageTitle: "Edit Video"});
+export const getEditVideo = async (req, res) => {
+    const {
+        params: {id} 
+    } = req;
+    try {
+        const videoEdit = await Video.findById(id);
+        res.render("editVideo", { pageTitle: `Edit ${videoEdit.title}`, videoEdit });
+    } catch (error) {
+        res.redirect(routes.home);
+    }
+};
 
-export const deleteVideo = (req, res) => res.render("deleteVideo", {pageTitle: "Delete Video"});
+export const postEditVideo = async (req, res) => {
+    const {
+        params: {id},
+        body: {title, description} 
+    } = req;
+    try {
+        await Video.findOneAndUpdate({ _id: id }, {title, description});
+        res.redirect(routes.videoDetail(id));
+    } catch (error) {
+        res.redirect(routes.home);
+    }
+};
+
+export const deleteVideo = async (req, res) => {
+    const {
+        params: {id}
+    } = req;
+    try {
+        await Video.findOneAndRemove({ _id: id});
+    } catch (error) {}
+    res.redirect(routes.home);
+};
