@@ -3,8 +3,7 @@ import routes from "../routes";
 import { 
     changePassword, 
     editProfile, 
-    userDetail, 
-    users 
+    userDetail
 } from "../controllers/userController";
 
 const userRouter = express.Router();
