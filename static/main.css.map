@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://wetube/./assets/scss/styles.scss","webpack://wetube/./assets/scss/config/_variables.scss"],"names":[],"mappings":"AAEA;EACE,sBCFa","file":"main.css","sourcesContent":["@import \"config/variables.scss\";\n\nbody {\n  background-color: $favorite;\n}\n","$bgColor: red;\n$favorite: pink;\n"],"sourceRoot":""}
