@@ -1,0 +1,68 @@
+.header {
+  background-color: $favorite;
+  margin-bottom: 50px;
+  .header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0% 1%;
+    .header__column {
+      display: flex;
+      &:first-child {
+        width: 35%;
+        a {
+          display: flex;
+          align-items: center;
+          font-size: 1rem;
+          font-weight: 700;
+          color: $black;
+        }
+        i {
+          color: whitesmoke;
+          font-size: 40px;
+          margin-right: 10px;
+        }
+      }
+      &:nth-child(2) {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        form {
+          width: 100%;
+          margin: 0 10px;
+          #searchWetube {
+            padding: 7px 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 14px;
+            color: $black;
+            font-weight: 600;
+            background-color: whitesmoke;
+            &::placeholder {
+              font-weight: 300;
+              color: rgba(61, 61, 61, 0.7);
+            }
+          }
+        }
+      }
+      &:last-child {
+        width: 35%;
+        display: flex;
+        justify-content: flex-end;
+        ul {
+          display: flex;
+          align-items: center;
+          //   font-size: 1rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          li:not(:last-child) {
+            margin-right: 15px;
+          }
+          a {
+            color: $black;
+          }
+        }
+      }
+    }
+  }
+}

@@ -2,8 +2,9 @@ extends layouts/main
 include mixins/videoBlcok
 
 block content
-    h1 Home
-    .videos
+    .home__header
+        h1 Home
+    .home__videos
         each item in videos 
             +videoBlock({
                 id:item.id,
@@ -11,3 +12,64 @@ block content
                 title: item.title,
                 views: item.views
             })
+            +videoBlock({
+                id:item.id,
+                videoFile:item.fileUrl,
+                title: item.title,
+                views: item.views
+            })
+            +videoBlock({
+                id:item.id,
+                videoFile:item.fileUrl,
+                title: item.title,
+                views: item.views
+            })
+            +videoBlock({
+                id:item.id,
+                videoFile:item.fileUrl,
+                title: item.title,
+                views: item.views
+            })
+            //- +videoBlock({
+            //-     id:item.id,
+            //-     videoFile:item.fileUrl,
+            //-     title: item.title,
+            //-     views: item.views
+            //- })
+            //- +videoBlock({
+            //-     id:item.id,
+            //-     videoFile:item.fileUrl,
+            //-     title: item.title,
+            //-     views: item.views
+            //- })
+            //- +videoBlock({
+            //-     id:item.id,
+            //-     videoFile:item.fileUrl,
+            //-     title: item.title,
+            //-     views: item.views
+            //- })
+            //- +videoBlock({
+            //-     id:item.id,
+            //-     videoFile:item.fileUrl,
+            //-     title: item.title,
+            //-     views: item.views
+            //- })
+            //- +videoBlock({
+            //-     id:item.id,
+            //-     videoFile:item.fileUrl,
+            //-     title: item.title,
+            //-     views: item.views
+            //- })
+            //- +videoBlock({
+            //-     id:item.id,
+            //-     videoFile:item.fileUrl,
+            //-     title: item.title,
+            //-     views: item.views
+            //- })
+            //- +videoBlock({
+            //-     id:item.id,
+            //-     videoFile:item.fileUrl,
+            //-     title: item.title,
+            //-     views: item.views
+            //- })
+            

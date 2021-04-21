@@ -1,0 +1,21 @@
+.search__header {
+  h1 {
+    font-size: 30px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+  }
+}
+.search__videos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(450px, 1fr));
+  grid-gap: 20px;
+  // .videoBlock:first-child,
+  // .videoBlock:nth-child(2) {
+  //   grid-column: span 3;
+  // }
+  // .videoBlock:nth-child(3),
+  // .videoBlock:nth-child(4),
+  // .videoBlock:nth-child(5) {
+  //   grid-column: span 2;
+  // }
+}

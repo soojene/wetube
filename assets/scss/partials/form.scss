@@ -1,0 +1,31 @@
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .editFormLabel {
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 2px;
+    color: $darkest-grey;
+  }
+
+  #videoTitleEdit {
+    margin: 0 0 20px 0;
+    padding: 10px 5px;
+  }
+
+  #videoDescriptionEdit {
+    width: 70%;
+    min-width: 400px;
+    max-width: 500px;
+    border: none;
+    font-size: 1rem;
+    color: $black;
+  }
+}

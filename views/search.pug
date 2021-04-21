@@ -3,7 +3,7 @@ include mixins/videoBlcok
 
 block content
     .search__header 
-        h3 Search for #{searchingBy}
+        h1 Search for #{searchingBy}
     .search__videos
         if videos.length === 0
             h5 No Vidoes Found
@@ -14,3 +14,22 @@ block content
                 videoFile:video.fileUrl,
                 id: video.id
             })
+            +videoBlock({
+                title: video.title,
+                views: video.views,
+                videoFile:video.fileUrl,
+                id: video.id
+            })
+            +videoBlock({
+                title: video.title,
+                views: video.views,
+                videoFile:video.fileUrl,
+                id: video.id
+            })
+            +videoBlock({
+                title: video.title,
+                views: video.views,
+                videoFile:video.fileUrl,
+                id: video.id
+            })
+            

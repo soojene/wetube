@@ -9,7 +9,7 @@ export const localsMiddleware = (req, res, next) => {
     res.locals.siteName = "Wetube";
     res.locals.routes = routes;
     res.locals.user = {
-        isAuthenticated: true,
+        isAuthenticated: false, //로그인상태 or not
         id: 7
     };
     next(); //만든 미들웨어 함수에는 next() 필수!
