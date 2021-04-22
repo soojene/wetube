@@ -1,10 +1,12 @@
+import passport from "passport";
 import routes from '../routes';
+import User from "../models/User";
 
 export const getJoin = (req, res) =>{
     res.render("join", {pageTitle: "Join"});
 };
 
-export const postJoin = (req, res) =>{
+export const postJoin = async (req, res, next) =>{
     // console.log(req.body); 폼을 제출하면 서버에 bodyParser를 통해 제출한 폼에 대한 정보가 도착
     const{
         body: {name, email, password, vPassword}
@@ -13,21 +15,62 @@ export const postJoin = (req, res) =>{
         res.status(400);
         res.render("join", {pageTitle: "Join"});
     } else{
-        //to do: register user
-        //to do: log user in
-        res.redirect(routes.home);
+        try {
+            const user = await User({
+              name,
+              email
+            });
+            await User.register(user, password);
+            next();
+          } catch (error) {
+            console.log(error);
+            res.redirect(routes.home);
+          }
     }
 };
 
 export const getLogin = (req, res) => res.render("login", {pageTitle: "Login"});
 
-export const postLogin = (req, res) =>{
-    //아이디 비번체크, 오류체크
-    res.redirect(routes.home);
+export const postLogin = passport.authenticate("local", {
+    failureRedirect: routes.login,
+    successRedirect: routes.home
+  });
+
+export const githubLogin = passport.authenticate("github"); 
+
+export const githubLoginCallback = (accessToken, refreshToken, profile, cb) => {
+  console.log(accessToken, refreshToken, profile, cb);
+};
+
+// export const githubLoginCallback = async (_, __, profile, cb) => {
+//   const {
+//     _json: { id, avatar_url, name, email }
+//   } = profile;
+//   try {
+//     const user = await User.findOne({ email });
+//     if (user) {
+//       user.githubId = id;
+//       user.save();
+//       return cb(null, user);
+//     }
+//     const newUser = await User.create({
+//       email,
+//       name,
+//       githubId: id,
+//       avatarUrl: avatar_url
+//     });
+//     return cb(null, newUser);
+//   } catch (error) {
+//     return cb(error);
+//   }
+// };
+  
+export const postGithubLogIn = (req, res) => {
+  res.redirect(routes.home);
 };
 
 export const logout = (req, res) => {
-    //user process log out
+    req.logout();
     res.redirect(routes.home)
 };
 

@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  a {
+    &:first-child {
+      color: whitesmoke;
+    }
+  }
   button {
     display: flex;
     align-items: center;

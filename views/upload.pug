@@ -3,8 +3,9 @@ extends layouts/main
 block content
     .form-container
         form(method="post" enctype="multipart/form-data")
-            label(for="file") Video File
-            input(type="file", id="file", name="videoFile", accept="video/*")
+            .editFormLabel
+                label(for="file") Video File:
+            input(type="file", class="uploadVideoForStyle", id="file", name="videoFile", accept="video/*")
             input(type="text", placeholder="Title", name="title")
-            textarea(name="description", placeholder="Description")
+            textarea(name="description", id="videoDescriptionUpload" placeholder="Description")
             input(type="submit", value="Upload Video")

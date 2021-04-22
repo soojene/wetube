@@ -270,6 +270,9 @@ button.delete {
     display: flex;
     flex-direction: column;
     align-items: center; }
+  .form-container .uploadVideoForStyle {
+    font-size: 1rem;
+    padding: 15px 0px; }
   .form-container .editFormLabel {
     width: 100%;
     font-size: 15px;
@@ -278,6 +281,7 @@ button.delete {
   .form-container #videoTitleEdit {
     margin: 0 0 20px 0;
     padding: 10px 5px; }
+  .form-container #videoDescriptionUpload,
   .form-container #videoDescriptionEdit {
     width: 70%;
     min-width: 400px;
@@ -285,11 +289,15 @@ button.delete {
     border: none;
     font-size: 1rem;
     color: #444444; }
+  .form-container #videoDescriptionUpload {
+    margin-top: 10px; }
 
 .social-login {
   display: flex;
   flex-direction: column;
   align-items: center; }
+  .social-login a:first-child {
+    color: whitesmoke; }
   .social-login button {
     display: flex;
     align-items: center;

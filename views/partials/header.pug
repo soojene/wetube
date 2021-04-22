@@ -9,7 +9,7 @@ header.header
                 input(type="text", id="searchWetube", placeholder="Search", name="term")
         .header__column
             ul 
-                if !user.isAuthenticated
+                if !user 
                     li 
                         a(href=routes.join) Join
                     li 
