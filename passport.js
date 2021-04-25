@@ -1,8 +1,9 @@
 
 import passport from "passport";
 import GithubStrategy from "passport-github";
+import KakaoStrategy from "passport-kakao";
 import User from "./models/User";
-import { githubLoginCallback } from './controllers/userController';
+import { githubLoginCallback, kakaoLoginCallback } from './controllers/userController';
 import routes from "./routes";
 
 
@@ -19,14 +20,25 @@ passport.use(
     )
 );
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.use(
+    new KakaoStrategy(
+      {
+        clientID: process.env.KAKAO_ID,
+        clientSecret: "", //process.env.KAKAO_SECRET,
+        callbackURL: `http://localhost:4000${routes.kakaoCallback}`,
+      }, kakaoLoginCallback
+    )
+  );
+  
 
-// passport.serializeUser((user, done) => {
-//     done(null, user.id);
-// });
-// passport.deserializeUser((id, done) => {
-//     User.findById(id, (err, user) => {
-//         done(err, user);
-//     })
-// });
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
+
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+});
+passport.deserializeUser((id, done) => {
+    User.findById(id, (err, user) => {
+        done(err, user);
+    })
+});

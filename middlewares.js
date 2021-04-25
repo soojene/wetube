@@ -12,7 +12,7 @@ export const localsMiddleware = (req, res, next) => {
     //     isAuthenticated: true, //로그인상태 or not
     //     id: 7
     // };
-    res.locals.user = req.user || null;
+    res.locals.loggedUser = req.user || null;
     // console.log(req.user); user의 쿠키
     next(); //만든 미들웨어 함수에는 next() 필수!
 };
