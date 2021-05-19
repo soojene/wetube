@@ -4,6 +4,9 @@ block content
     .vidoe-detail__container
         .video__player 
             video(src=`/${clickedVideo.fileUrl}`) 
+        .video__author
+                |Uploaded by 
+                a(href=routes.userDetail(clickedVideo.creator.id))=clickedVideo.creator.name
         .video__info
             h5.video__title=clickedVideo.title 
             if clickedVideo.views === 1
@@ -17,5 +20,7 @@ block content
             else 
                 span.video__comment-number #{clickedVideo.comments.length} comments
         .video__edit
-            a(href=routes.editVideo(clickedVideo.id)) 
-                button.editVideoBt Edit Video
+            if loggedUser
+                if clickedVideo.creator.id === loggedUser.id
+                    a(href=routes.editVideo(clickedVideo.id))
+                        button.editVideoBt Edit video
