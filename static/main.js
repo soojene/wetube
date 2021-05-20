@@ -1,9 +1,9 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./assets/js/videoPlayer.js":
+/***/ "./assets/js/videoplayer.js":
 /*!**********************************!*\
-  !*** ./assets/js/videoPlayer.js ***!
+  !*** ./assets/js/videoplayer.js ***!
   \**********************************/
 /***/ (() => {
 
@@ -11189,8 +11189,8 @@ _global["default"]._babelPolyfill = true;
   \***************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ "./assets/scss/styles.scss");
-/* harmony import */ var _videoPlayer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./videoPlayer */ "./assets/js/videoPlayer.js");
-/* harmony import */ var _videoPlayer__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_videoPlayer__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _videoplayer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./videoplayer */ "./assets/js/videoplayer.js");
+/* harmony import */ var _videoplayer__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_videoplayer__WEBPACK_IMPORTED_MODULE_1__);
 
 
 })();
