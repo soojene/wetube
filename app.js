@@ -1,7 +1,7 @@
 import "core-js";
 import express from "express";
 import morgan from "morgan";
-// import helmet from "helmet";
+import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import passport from "passport";
@@ -19,11 +19,15 @@ import "./passport";
 const app = express() 
 // const MongoStore = require("connect-mongo").default;
 
-app.use((req, res, next) => {
-    res.setHeader("Content-Security-Policy", "script-src 'self' https://archive.org");
-    return next();
-    });
-// app.use(helmet());
+// app.use((req, res, next) => {
+//     res.setHeader("Content-Security-Policy", "script-src 'self' https://archive.org");
+//     return next();
+//     });
+app.use(
+      helmet({
+      contentSecurityPolicy: false,
+      })
+    );
 app.set("view engine", "pug");
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("static"));

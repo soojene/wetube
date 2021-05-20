@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   .video__edit,
-  .video__player,
   .video__info,
   .video__comments {
     display: flex;
@@ -11,13 +10,14 @@
     max-width: 850px;
     margin-top: 20px;
   }
-  .video__player {
-    justify-content: center;
-    video {
-      width: 100%;
+
+  .video__author {
+    margin-top: 5px;
+    color: $darkest-grey;
+    a {
+      color: $black;
     }
   }
-
   .video__info {
     flex-direction: column;
     justify-content: flex-start;

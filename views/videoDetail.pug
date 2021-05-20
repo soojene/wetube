@@ -1,9 +1,11 @@
 extends layouts/main
+include mixins/videoPlayer 
 
 block content
     .vidoe-detail__container
-        .video__player 
-            video(src=`/${clickedVideo.fileUrl}`) 
+        +videoPlayer({
+            src:clickedVideo.fileUrl
+        })
         .video__author
                 |Uploaded by 
                 a(href=routes.userDetail(clickedVideo.creator.id))=clickedVideo.creator.name
@@ -21,6 +23,6 @@ block content
                 span.video__comment-number #{clickedVideo.comments.length} comments
         .video__edit
             if loggedUser
-                if clickedVideo.creator.id === loggedUser.id
+                if loggedUser && clickedVideo.creator.id === loggedUser.id
                     a(href=routes.editVideo(clickedVideo.id))
                         button.editVideoBt Edit video
